@@ -1,0 +1,6 @@
+M = int(input())
+i1= set(map(int,input().split()))
+N = int(input())
+i2= set(map(int,input().split()))
+for i in sorted((i1.symmetric_difference(i2))):
+    print (i)
