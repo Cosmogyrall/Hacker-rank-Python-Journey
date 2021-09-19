@@ -1,0 +1,14 @@
+from collections import Counter
+X = int(input("Number of shoes: "))
+sizes = list(map(int, input().split()))  # list of sizes available
+k= Counter(sizes)   #dictionary {size:stock}              
+                   
+cust = int(input())
+profit = 0                                  
+for i in range(cust):
+        size,price = map(int,input().split())
+        if size in k.keys():
+            if k[size]>0:
+                profit += price
+                k[size]-=1
+print(profit)
