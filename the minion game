@@ -1,0 +1,47 @@
+# this was my solution which even counted the combinations
+
+from collections import Counter
+def minion_game(s):
+    s=s.upper()
+    V='AEIOU'
+    s1=[] #substrings list
+    s2=[]   
+    for i in range(len(s)):
+        if s[i] in V:
+            for j in range(len(s[i:])):
+                sub1=s[i:i+j+1]
+                s1.append(sub1)
+            
+        elif s[i] not in V:
+            for j in range(len(s[i:])):
+                sub2=s[i:i+j+1]
+                s2.append(sub2)
+    score1=sum(Counter(s1).values())
+    score2=sum(Counter(s2).values())
+    if score1>score2:
+        print('Kevin',score1)
+    elif score1<score2:
+        print('Stuart',score2)
+    else:
+        print('Draw')
+        
+       
+ # simple solution which doesnt makes combinations but directly uses length logic
+       def minion_game(s):
+    s=s.upper()
+    V='AEIOU'
+    s1=0 #score 
+    s2=0   
+    for i in range(len(s)):
+        if s[i] in V:
+                s1=s1+len(s[i:])
+            
+        elif s[i] not in V:
+                s2=s2+len(s[i:])
+                
+    if s1>s2:
+        print('Kevin',s1)
+    elif s1<s2:
+        print('Stuart',s2)
+    else:
+        print('Draw')
