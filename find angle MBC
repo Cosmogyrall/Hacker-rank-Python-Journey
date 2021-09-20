@@ -1,0 +1,8 @@
+import math
+AB = int(input())
+BC = int(input())
+
+        #BM=AC/2 its a property of right angled triangle as BM bisects AC at 90 degree
+        # thus BMC is isoceles triangle, <mbc = <c
+        # tan <mbc =tan<c =AB/BC
+print(round(math.degrees(math.atan(AB/BC))),chr(176),sep='')
