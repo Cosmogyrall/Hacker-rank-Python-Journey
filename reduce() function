@@ -1,0 +1,33 @@
+import math
+import functools
+n = int (input())
+Num = []
+Den = []
+for i in range(n):
+    N,D = map(int,input().split())
+    Num.append(N)
+    Den.append(D)
+#print(Num,Den)
+
+P1 = functools.reduce(lambda x,y:x*y, Num)
+P2 = functools.reduce(lambda x,y:x*y, Den)
+GCD = math.gcd(P1,P2)
+N = P1//GCD
+D = P2//GCD
+print(N,D)
+
+
+#hacker rank solution
+from fractions import Fraction
+from functools import reduce
+
+def product(fracs):
+    t = reduce(lambda x,y:x*y,fracs)
+    return t.numerator, t.denominator
+
+if __name__ == '__main__':
+    fracs = []
+    for _ in range(int(input())):
+        fracs.append(Fraction(*map(int, input().split())))
+    result = product(fracs)
+    print(*result)
